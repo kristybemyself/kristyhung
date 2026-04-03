@@ -69,18 +69,10 @@ const AboutPage = () => {
 
               <div className="mt-12 flex flex-wrap gap-4">
                 <a
-                  href="mailto:yokanikky@gmail.com"
+                  href="/#contact"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
                 >
                   Get in Touch
-                </a>
-                <a
-                  href="https://www.instagram.com/kristyhung_hk/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border text-foreground text-sm font-medium hover:bg-accent transition-colors"
-                >
-                  Instagram
                 </a>
               </div>
             </div>

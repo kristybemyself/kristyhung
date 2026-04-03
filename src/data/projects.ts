@@ -1,3 +1,11 @@
+import birthmachine1 from "@/assets/birthmachine1.jpg";
+import birthmachine2 from "@/assets/birthmachine2.jpg";
+import meshby4 from "@/assets/meshby4.png";
+import mushby2 from "@/assets/mushby2.png";
+import savinggoal1 from "@/assets/savinggoal1.png";
+import savinggoal3 from "@/assets/savinggoal3.jpg";
+import wheeloffortune3 from "@/assets/wheeloffortune3.jpeg";
+
 export const projects = [
   {
     slug: "mushby",
@@ -9,6 +17,7 @@ export const projects = [
     image:
       "https://kristyhung.wordpress.com/wp-content/uploads/2026/03/e89ea2e5b995e693b7e58f96e795abe99da2-2025-09-11-003746.png",
     tags: ["Prototype", "NFC", "App Design"],
+    gallery: [meshby4, mushby2],
   },
   {
     slug: "birth-machine",
@@ -20,6 +29,7 @@ export const projects = [
     image:
       "https://kristyhung.wordpress.com/wp-content/uploads/2026/03/20251127_154409-1-edited.jpg",
     tags: ["Robotics", "Art", "Installation"],
+    gallery: [birthmachine1, birthmachine2],
   },
   {
     slug: "saving-goal",
@@ -31,6 +41,7 @@ export const projects = [
     image:
       "https://kristyhung.wordpress.com/wp-content/uploads/2026/03/img-20241206-wa0027-edited-1.jpg",
     tags: ["3D Mapping", "Game", "Interactive"],
+    gallery: [savinggoal1, savinggoal3],
   },
   {
     slug: "halloween-party",
@@ -42,6 +53,7 @@ export const projects = [
     image:
       "https://kristyhung.wordpress.com/wp-content/uploads/2025/07/e89ea2e5b995e693b7e58f96e795abe99da2-2026-03-07-173928.png",
     tags: ["Immersive", "Experience", "Event"],
+    gallery: [wheeloffortune3],
   },
   {
     slug: "hangang-bridge-bombing",
@@ -53,6 +65,7 @@ export const projects = [
     image:
       "https://kristyhung.wordpress.com/wp-content/uploads/2026/03/e89ea2e5b995e693b7e58f96e795abe99da2-2025-12-06-224831-edited.png",
     tags: ["RPG", "Game", "History"],
+    gallery: [],
   },
   {
     slug: "flock-flow",
@@ -64,5 +77,6 @@ export const projects = [
     image:
       "https://kristyhung.wordpress.com/wp-content/uploads/2026/03/artwork5-edited-4.jpg",
     tags: ["Game", "Interactive", "Experiment"],
+    gallery: [],
   },
 ];
