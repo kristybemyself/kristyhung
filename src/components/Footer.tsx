@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer id="contact" className="py-16 bg-card border-t border-border">
+    <footer className="py-16 bg-card border-t border-border">
       <div className="max-w-[1400px] mx-auto px-8 md:px-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
@@ -19,18 +19,26 @@ const Footer = () => {
 
           <div className="flex items-center gap-8">
             <a
-              href="https://kristyhung.wordpress.com"
+              href="mailto:yokanikky@gmail.com"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Gmail
+            </a>
+            <a
+              href="https://wa.me/85262117135"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              WordPress
+              WhatsApp
             </a>
             <a
-              href="mailto:contact@kristyhung.com"
+              href="https://www.instagram.com/kristyhung_hk/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              Email
+              Instagram
             </a>
           </div>
         </div>
