@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer id="contact" className="py-16 bg-card border-t border-border">
+    <footer className="py-16 bg-card border-t border-border">
       <div className="max-w-[1400px] mx-auto px-8 md:px-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
