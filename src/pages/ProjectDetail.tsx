@@ -69,6 +69,29 @@ const ProjectDetail = () => {
             {project.longDescription}
           </p>
         </div>
+
+        {/* Gallery */}
+        {project.gallery && project.gallery.length > 0 && (
+          <div className="max-w-[1400px] mx-auto px-8 md:px-12 pb-24">
+            <h2 className="font-heading text-2xl font-bold text-foreground mb-8">
+              Gallery
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {project.gallery.map((img, index) => (
+                <div
+                  key={index}
+                  className="rounded-2xl overflow-hidden bg-secondary"
+                >
+                  <img
+                    src={img}
+                    alt={`${project.title} — image ${index + 1}`}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </main>
 
       <Footer />
