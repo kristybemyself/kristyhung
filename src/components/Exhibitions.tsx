@@ -23,7 +23,7 @@ const exhibitions = [
       "A platform for international exchange, showcasing artworks by students from AVA, ARTT, and Nagoya University of the Arts.",
     image:
       "https://kristyhung.wordpress.com/wp-content/uploads/2026/03/whatsapp-image-2026-01-19-at-16.37.04.jpeg",
-    link: "https://www.instagram.com/p/DTzn5xrEVW_/",
+    link: "https://www.instagram.com/p/DTzn5xrEVW_/?igsh=a2MzbHNiZWU2Njd4",
   },
 ];
 

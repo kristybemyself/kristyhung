@@ -4,13 +4,13 @@ const About = () => {
       <div className="max-w-[1400px] mx-auto px-8 md:px-12">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
           <div className="w-full lg:w-2/5 flex justify-center">
-            <div className="w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden">
+            <a href="/about" className="block w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden group cursor-pointer">
               <img
                 src="https://kristyhung.wordpress.com/wp-content/uploads/2026/02/whatsapp-image-2026-01-29-at-00.57.45-2.jpeg"
                 alt="Kristy Hung"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-            </div>
+            </a>
           </div>
 
           <div className="w-full lg:w-3/5">
