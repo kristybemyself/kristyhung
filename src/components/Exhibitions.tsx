@@ -32,10 +32,10 @@ const Exhibitions = () => {
     <section id="exhibitions" className="py-24 md:py-32 bg-secondary">
       <div className="max-w-[1400px] mx-auto px-8 md:px-12">
         <p className="font-heading text-sm tracking-widest uppercase text-muted-foreground mb-3">
-          Exhibitions
+          Projects
         </p>
         <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground max-w-2xl mb-16">
-          Arts Exhibition
+          Projects
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
