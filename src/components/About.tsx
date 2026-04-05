@@ -8,7 +8,7 @@ const About = () => {
         src={decoBlob}
         alt=""
         aria-hidden="true"
-        className="absolute -right-16 top-12 w-[240px] md:w-[320px] opacity-40 pointer-events-none select-none animate-float"
+        className="absolute -right-8 top-4 w-[340px] md:w-[460px] lg:w-[520px] opacity-50 pointer-events-none select-none animate-float"
       />
 
       <div className="max-w-[1400px] mx-auto px-8 md:px-12 relative z-10">

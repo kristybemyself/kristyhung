@@ -31,7 +31,7 @@ const Services = () => {
         src={decoSpring}
         alt=""
         aria-hidden="true"
-        className="absolute -left-20 bottom-8 w-[220px] md:w-[300px] opacity-40 pointer-events-none select-none animate-float-slow"
+        className="absolute -left-12 bottom-0 w-[320px] md:w-[440px] lg:w-[500px] opacity-50 pointer-events-none select-none animate-float-slow"
       />
 
       <div className="max-w-[1400px] mx-auto px-8 md:px-12 relative z-10">

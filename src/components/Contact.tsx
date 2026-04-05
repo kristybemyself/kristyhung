@@ -62,7 +62,7 @@ const Contact = () => {
         src={decoTorus}
         alt=""
         aria-hidden="true"
-        className="absolute -left-24 bottom-0 w-[200px] md:w-[260px] opacity-30 pointer-events-none select-none rotate-45 animate-float-slow"
+        className="absolute -left-16 -bottom-8 w-[300px] md:w-[400px] lg:w-[460px] opacity-40 pointer-events-none select-none rotate-45 animate-float-slow"
       />
 
       <div className="max-w-[1400px] mx-auto px-8 md:px-12 text-center relative z-10">
