@@ -1,5 +1,6 @@
 import { Mail, Phone, Instagram } from "lucide-react";
 import decoTorus from "@/assets/deco-torus.png";
+import { useMagnetic } from "@/hooks/use-interactive";
 
 const contactLinks = [
   {
@@ -22,10 +23,41 @@ const contactLinks = [
   },
 ];
 
+const ContactCard = ({ item }: { item: typeof contactLinks[0] }) => {
+  const magnetic = useMagnetic(0.15);
+
+  return (
+    <a
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block"
+    >
+      <div
+        ref={magnetic.ref}
+        onMouseMove={magnetic.onMouseMove}
+        onMouseLeave={magnetic.onMouseLeave}
+        className="flex flex-col items-center gap-4 p-8 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
+      >
+        <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+          <item.icon size={24} className="text-primary" />
+        </div>
+        <div>
+          <h3 className="font-heading font-semibold text-card-foreground mb-1">
+            {item.label}
+          </h3>
+          <p className="text-sm text-muted-foreground">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    </a>
+  );
+};
+
 const Contact = () => {
   return (
     <section id="contact" className="py-24 md:py-32 bg-secondary relative overflow-hidden">
-      {/* Decorative 3D element */}
       <img
         src={decoTorus}
         alt=""
@@ -47,25 +79,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
           {contactLinks.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col items-center gap-4 p-8 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-300"
-            >
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <item.icon size={24} className="text-primary" />
-              </div>
-              <div>
-                <h3 className="font-heading font-semibold text-card-foreground mb-1">
-                  {item.label}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
-            </a>
+            <ContactCard key={item.label} item={item} />
           ))}
         </div>
       </div>
