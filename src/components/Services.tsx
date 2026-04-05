@@ -1,3 +1,5 @@
+import decoSpring from "@/assets/deco-spring.png";
+
 const services = [
   {
     title: "Interactive Art",
@@ -23,8 +25,16 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="py-24 md:py-32 bg-background">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12">
+    <section className="py-24 md:py-32 bg-background relative overflow-hidden">
+      {/* Decorative 3D element */}
+      <img
+        src={decoSpring}
+        alt=""
+        aria-hidden="true"
+        className="absolute -left-20 bottom-8 w-[220px] md:w-[300px] opacity-40 pointer-events-none select-none animate-float-slow"
+      />
+
+      <div className="max-w-[1400px] mx-auto px-8 md:px-12 relative z-10">
         <p className="font-heading text-sm tracking-widest uppercase text-muted-foreground mb-3">
           Services
         </p>
@@ -36,7 +46,7 @@ const Services = () => {
           {services.map((service) => (
             <div
               key={service.title}
-              className="bg-card p-8 md:p-10 flex flex-col"
+              className="bg-card p-8 md:p-10 flex flex-col hover:bg-primary/5 transition-colors duration-300"
             >
               <h3 className="font-heading text-base font-semibold text-card-foreground mb-3">
                 {service.title}
