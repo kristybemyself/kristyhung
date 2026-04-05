@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import { useTilt } from "@/hooks/use-interactive";
 
 const exhibitions = [
   {
@@ -27,6 +28,46 @@ const exhibitions = [
   },
 ];
 
+const ExhibitionCard = ({ exhibit }: { exhibit: typeof exhibitions[0] }) => {
+  const tilt = useTilt(5);
+
+  return (
+    <a
+      href={exhibit.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block"
+    >
+      <div
+        ref={tilt.ref}
+        onMouseMove={tilt.onMouseMove}
+        onMouseLeave={tilt.onMouseLeave}
+        className="bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+      >
+        <div className="aspect-[4/3] overflow-hidden">
+          <img
+            src={exhibit.image}
+            alt={exhibit.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-2">
+            <h3 className="font-heading text-lg font-semibold text-card-foreground">
+              {exhibit.title}
+            </h3>
+            <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-200" />
+          </div>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            {exhibit.description}
+          </p>
+        </div>
+      </div>
+    </a>
+  );
+};
+
 const Exhibitions = () => {
   return (
     <section id="exhibitions" className="py-24 md:py-32 bg-secondary">
@@ -40,33 +81,7 @@ const Exhibitions = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {exhibitions.map((exhibit) => (
-            <a
-              key={exhibit.title}
-              href={exhibit.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all duration-300"
-            >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={exhibit.image}
-                  alt={exhibit.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-heading text-lg font-semibold text-card-foreground">
-                    {exhibit.title}
-                  </h3>
-                  <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {exhibit.description}
-                </p>
-              </div>
-            </a>
+            <ExhibitionCard key={exhibit.title} exhibit={exhibit} />
           ))}
         </div>
       </div>
