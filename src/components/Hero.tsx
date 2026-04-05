@@ -8,7 +8,7 @@ const Hero = () => {
         src={decoTorus}
         alt=""
         aria-hidden="true"
-        className="absolute -right-16 top-24 w-[280px] md:w-[380px] opacity-60 pointer-events-none select-none animate-float"
+        className="absolute -right-8 top-16 w-[380px] md:w-[520px] lg:w-[600px] opacity-70 pointer-events-none select-none animate-float"
       />
 
       <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-20 md:py-28 relative z-10">
