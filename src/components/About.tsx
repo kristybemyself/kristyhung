@@ -1,7 +1,17 @@
+import decoBlob from "@/assets/deco-blob.png";
+
 const About = () => {
   return (
-    <section id="about" className="py-24 md:py-32 bg-background">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12">
+    <section id="about" className="py-24 md:py-32 bg-background relative overflow-hidden">
+      {/* Decorative 3D element */}
+      <img
+        src={decoBlob}
+        alt=""
+        aria-hidden="true"
+        className="absolute -right-16 top-12 w-[240px] md:w-[320px] opacity-40 pointer-events-none select-none animate-float"
+      />
+
+      <div className="max-w-[1400px] mx-auto px-8 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
           <div className="w-full lg:w-2/5 flex justify-center">
             <a href="/about" className="block w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden group cursor-pointer">

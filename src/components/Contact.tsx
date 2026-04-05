@@ -1,4 +1,5 @@
 import { Mail, Phone, Instagram } from "lucide-react";
+import decoTorus from "@/assets/deco-torus.png";
 
 const contactLinks = [
   {
@@ -23,8 +24,16 @@ const contactLinks = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 md:py-32 bg-secondary">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12 text-center">
+    <section id="contact" className="py-24 md:py-32 bg-secondary relative overflow-hidden">
+      {/* Decorative 3D element */}
+      <img
+        src={decoTorus}
+        alt=""
+        aria-hidden="true"
+        className="absolute -left-24 bottom-0 w-[200px] md:w-[260px] opacity-30 pointer-events-none select-none rotate-45 animate-float-slow"
+      />
+
+      <div className="max-w-[1400px] mx-auto px-8 md:px-12 text-center relative z-10">
         <p className="font-heading text-sm tracking-widest uppercase text-muted-foreground mb-3">
           Contact
         </p>
