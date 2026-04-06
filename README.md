@@ -1,3 +1,2 @@
-# Welcome to your Lovable project
+made with lovable
 
-TODO: Document your project here
