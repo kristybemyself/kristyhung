@@ -1,22 +1,21 @@
 import { useEffect, useRef } from "react";
 
-interface Particle {
+interface TrailPoint {
   x: number;
   y: number;
+  life: number; // 1 → 0
   size: number;
-  alpha: number;
-  vx: number;
-  vy: number;
 }
 
 const CursorTrail = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<Particle[]>([]);
-  const mouseRef = useRef({ x: -1000, y: -1000, active: false });
+  const pointsRef = useRef<TrailPoint[]>([]);
+  const targetRef = useRef({ x: -1000, y: -1000 });
+  const followerRef = useRef({ x: -1000, y: -1000 });
+  const activeRef = useRef(false);
   const rafRef = useRef<number>();
 
   useEffect(() => {
-    // Disable on touch devices
     if (window.matchMedia("(hover: none)").matches) return;
 
     const canvas = canvasRef.current;
@@ -25,77 +24,88 @@ const CursorTrail = () => {
     if (!ctx) return;
 
     const dpr = window.devicePixelRatio || 1;
-
     const resize = () => {
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = `${window.innerWidth}px`;
       canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.scale(dpr, dpr);
     };
     resize();
     window.addEventListener("resize", resize);
 
-    // Read primary color from CSS vars (HSL components)
-    const styles = getComputedStyle(document.documentElement);
-    const getPrimary = () => styles.getPropertyValue("--primary").trim() || "192 85% 55%";
-
     const handleMove = (e: MouseEvent) => {
-      mouseRef.current.x = e.clientX;
-      mouseRef.current.y = e.clientY;
-      mouseRef.current.active = true;
-      // Spawn a few particles
-      for (let i = 0; i < 2; i++) {
-        particlesRef.current.push({
-          x: e.clientX,
-          y: e.clientY,
-          size: Math.random() * 8 + 4,
-          alpha: 0.6,
-          vx: (Math.random() - 0.5) * 0.6,
-          vy: (Math.random() - 0.5) * 0.6,
-        });
-      }
-      // Cap particle count
-      if (particlesRef.current.length > 80) {
-        particlesRef.current.splice(0, particlesRef.current.length - 80);
+      targetRef.current.x = e.clientX;
+      targetRef.current.y = e.clientY;
+      if (!activeRef.current) {
+        followerRef.current.x = e.clientX;
+        followerRef.current.y = e.clientY;
+        activeRef.current = true;
       }
     };
     window.addEventListener("mousemove", handleMove, { passive: true });
 
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const primary = getPrimary();
 
-      // Soft glow following the cursor
-      if (mouseRef.current.active) {
-        const { x, y } = mouseRef.current;
-        const glow = ctx.createRadialGradient(x, y, 0, x, y, 90);
-        glow.addColorStop(0, `hsla(${primary} / 0.25)`);
-        glow.addColorStop(1, `hsla(${primary} / 0)`);
-        ctx.fillStyle = glow;
-        ctx.beginPath();
-        ctx.arc(x, y, 90, 0, Math.PI * 2);
-        ctx.fill();
+      if (activeRef.current) {
+        // Smooth follower easing toward the target
+        followerRef.current.x += (targetRef.current.x - followerRef.current.x) * 0.18;
+        followerRef.current.y += (targetRef.current.y - followerRef.current.y) * 0.18;
+
+        // Drop a new trail point each frame at the follower position
+        pointsRef.current.push({
+          x: followerRef.current.x,
+          y: followerRef.current.y,
+          life: 1,
+          size: 6,
+        });
+        if (pointsRef.current.length > 60) pointsRef.current.shift();
       }
 
-      // Particles
-      const particles = particlesRef.current;
-      for (let i = particles.length - 1; i >= 0; i--) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        p.alpha -= 0.025;
-        p.size *= 0.96;
-        if (p.alpha <= 0 || p.size < 0.5) {
-          particles.splice(i, 1);
+      ctx.globalCompositeOperation = "lighter";
+
+      // Draw soft trail dots — newer points are larger & brighter
+      const pts = pointsRef.current;
+      for (let i = pts.length - 1; i >= 0; i--) {
+        const p = pts[i];
+        p.life -= 0.035;
+        if (p.life <= 0) {
+          pts.splice(i, 1);
           continue;
         }
-        ctx.fillStyle = `hsla(${primary} / ${p.alpha})`;
+        const radius = p.size * p.life * 2.2;
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, radius);
+        grad.addColorStop(0, `rgba(255, 255, 255, ${0.35 * p.life})`);
+        grad.addColorStop(0.4, `rgba(255, 255, 255, ${0.12 * p.life})`);
+        grad.addColorStop(1, "rgba(255, 255, 255, 0)");
+        ctx.fillStyle = grad;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
         ctx.fill();
       }
 
+      // Elegant cursor halo
+      if (activeRef.current) {
+        const { x, y } = followerRef.current;
+        const halo = ctx.createRadialGradient(x, y, 0, x, y, 28);
+        halo.addColorStop(0, "rgba(255, 255, 255, 0.55)");
+        halo.addColorStop(0.5, "rgba(255, 255, 255, 0.15)");
+        halo.addColorStop(1, "rgba(255, 255, 255, 0)");
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(x, y, 28, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Crisp inner dot
+        ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+        ctx.beginPath();
+        ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.globalCompositeOperation = "source-over";
       rafRef.current = requestAnimationFrame(render);
     };
     rafRef.current = requestAnimationFrame(render);
