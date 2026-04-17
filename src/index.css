@@ -14,80 +14,80 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 192 85% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 7%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 100%;
 
-    --accent: 192 85% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 7%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 92%;
-    --input: 0 0% 92%;
-    --ring: 192 85% 55%;
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 0 0% 100%;
 
     --radius: 0.5rem;
 
-    --hero-bg: 0 0% 96%;
+    --hero-bg: 0 0% 11%;
 
     --font-heading: 'PTZ56F', 'JetBrains Mono', monospace;
     --font-body: 'Inter', sans-serif;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 192 85% 55%;
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 22%;
+    --sidebar-ring: 0 0% 100%;
   }
 
   .dark {
     --background: 0 0% 7%;
-    --foreground: 0 0% 96%;
+    --foreground: 0 0% 100%;
     --card: 0 0% 11%;
-    --card-foreground: 0 0% 96%;
+    --card-foreground: 0 0% 100%;
     --popover: 0 0% 11%;
-    --popover-foreground: 0 0% 96%;
-    --primary: 192 85% 60%;
-    --primary-foreground: 0 0% 100%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 7%;
     --secondary: 0 0% 14%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 68%;
-    --accent: 192 85% 60%;
-    --accent-foreground: 0 0% 100%;
+    --muted-foreground: 0 0% 100%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 7%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 192 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 0 0% 100%;
     --hero-bg: 0 0% 11%;
     --sidebar-background: 0 0% 7%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 192 85% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 7%;
     --sidebar-accent: 0 0% 14%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 192 85% 60%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 22%;
+    --sidebar-ring: 0 0% 100%;
   }
 }
 
@@ -103,10 +103,21 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
+    color: #ffffff;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, span, a, li, label, button {
+    color: #ffffff;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+  }
+
+  /* Force all icons to white */
+  svg {
+    color: #ffffff;
+    stroke: currentColor;
   }
 }
 
