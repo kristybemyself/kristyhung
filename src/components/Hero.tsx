@@ -12,11 +12,8 @@ const Hero = () => {
       />
 
       <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-20 md:py-28 relative z-10">
-        <h1 className="font-heading text-4xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.1] tracking-tight text-foreground max-w-4xl">
-          Crafting Digital{" "}
-          <span className="text-primary">Experiences</span>
-          <br />
-          That Inspire and Engage
+        <h1 className="font-heading text-6xl md:text-8xl lg:text-[9rem] font-bold leading-[1.1] tracking-tight text-foreground max-w-4xl">
+          Digital <span className="text-primary">Alchemist</span>
         </h1>
         <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
           Striking a perfect balance between visuals and AI to create unique artworks,
