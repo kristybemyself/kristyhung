@@ -12,7 +12,7 @@ const Hero = () => {
       />
 
       <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-20 md:py-28 relative z-10">
-        <h1 className="font-heading text-6xl md:text-8xl lg:text-[9rem] font-bold leading-[1.1] tracking-tight text-foreground max-w-4xl">
+        <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.15] tracking-normal text-foreground max-w-4xl">
           Digital <span className="text-primary">Alchemist</span>
         </h1>
         <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
