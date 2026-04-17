@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import ProjectDetail from "./pages/ProjectDetail.tsx";
 import AboutPage from "./pages/AboutPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import CursorTrail from "./components/CursorTrail.tsx";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <CursorTrail />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
