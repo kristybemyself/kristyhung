@@ -1,5 +1,5 @@
 import decoTorus from "@/assets/deco-torus.png";
-import gradShowImage from "@/assets/gradshow2026.jpg.asset.json";
+import gradShowImage from "@/assets/gradshow2026.jpg";
 
 const Hero = () => {
   return (
@@ -26,7 +26,7 @@ const Hero = () => {
       <div className="max-w-[1400px] mx-auto px-8 md:px-12 pb-0 relative z-10">
         <div className="rounded-t-2xl overflow-hidden">
           <img
-            src={gradShowImage.url}
+            src={gradShowImage}
             alt="Kristy Hung's work displayed at the 2026 graduation show"
             className="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover"
           />

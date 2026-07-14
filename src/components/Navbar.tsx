@@ -3,9 +3,9 @@ import { Menu, X } from "lucide-react";
 import { useMagnetic } from "@/hooks/use-interactive";
 
 const navLinks = [
+  { label: "About Me", href: "#about" },
   { label: "Work", href: "#work" },
   { label: "Projects", href: "#exhibitions" },
-  { label: "About Me", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
