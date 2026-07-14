@@ -1,4 +1,5 @@
 import decoTorus from "@/assets/deco-torus.png";
+import gradShowImage from "@/assets/gradshow2026.jpg.asset.json";
 
 const Hero = () => {
   return (
