@@ -12,7 +12,6 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  base: "/kristyhung/", //
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
